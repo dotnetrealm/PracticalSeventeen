@@ -16,6 +16,7 @@ namespace PracticalSeventeen.Data.Models
         {
             modelBuilder.Entity<UserRole>().HasKey(ur => new { ur.RoleId, ur.UserId });
 
+            //Data Seeders
             modelBuilder.SeedUsers();
             modelBuilder.SeedRoles();
             modelBuilder.SeedUserRoles();

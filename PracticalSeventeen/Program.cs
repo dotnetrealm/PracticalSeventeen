@@ -1,9 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using PracticalSeventeen.Data.Interfaces;
 using PracticalSeventeen.Data.Models;
+using PracticalSeventeen.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 
 builder.Services.AddDbContextPool<ApplicationDBContext>(opt =>
 {
@@ -27,6 +30,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Student}/{action=Index}/{id?}");
 
 app.Run();
