@@ -72,8 +72,9 @@ namespace PracticalSeventeen.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<bool>("Gender")
-                        .HasColumnType("bit");
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -99,7 +100,7 @@ namespace PracticalSeventeen.Data.Migrations
                             Address = "Rajkot",
                             DOB = new DateTime(2002, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Bhavin",
-                            Gender = true,
+                            Gender = "M",
                             LastName = "Kareliya",
                             MobileNumber = "1231231231"
                         },
@@ -109,7 +110,7 @@ namespace PracticalSeventeen.Data.Migrations
                             Address = "Rajkot",
                             DOB = new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Jil",
-                            Gender = true,
+                            Gender = "M",
                             LastName = "Patel",
                             MobileNumber = "1231231231"
                         },
@@ -119,7 +120,7 @@ namespace PracticalSeventeen.Data.Migrations
                             Address = "Rajkot",
                             DOB = new DateTime(1999, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Vipul",
-                            Gender = true,
+                            Gender = "M",
                             LastName = "Kumar",
                             MobileNumber = "1231231231"
                         },
@@ -129,7 +130,7 @@ namespace PracticalSeventeen.Data.Migrations
                             Address = "Rajkot",
                             DOB = new DateTime(2000, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Jay",
-                            Gender = true,
+                            Gender = "M",
                             LastName = "Gohel",
                             MobileNumber = "1231231231"
                         });

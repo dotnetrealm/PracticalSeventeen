@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -26,10 +27,10 @@ namespace PracticalSeventeen.Data.Migrations
                 columns: new[] { "Id", "Address", "DOB", "FirstName", "Gender", "LastName", "MiddleName", "MobileNumber" },
                 values: new object[,]
                 {
-                    { 1, "Rajkot", new DateTime(2002, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bhavin", true, "Kareliya", null, "1231231231" },
-                    { 2, "Rajkot", new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Jil", true, "Patel", null, "1231231231" },
-                    { 3, "Rajkot", new DateTime(1999, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vipul", true, "Kumar", null, "1231231231" },
-                    { 4, "Rajkot", new DateTime(2000, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Jay", true, "Gohel", null, "1231231231" }
+                    { 1, "Rajkot", new DateTime(2002, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bhavin", "M", "Kareliya", null, "1231231231" },
+                    { 2, "Rajkot", new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Jil", "M", "Patel", null, "1231231231" },
+                    { 3, "Rajkot", new DateTime(1999, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vipul", "M", "Kumar", null, "1231231231" },
+                    { 4, "Rajkot", new DateTime(2000, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Jay", "M", "Gohel", null, "1231231231" }
                 });
 
             migrationBuilder.InsertData(

@@ -54,10 +54,10 @@ namespace PracticalSeventeen.Data.Models
         {
             //0-Female, 1 = Male
             modelBuilder.Entity<Student>().HasData(
-                new Student() { Id = 1, FirstName = "Bhavin", LastName = "Kareliya", MobileNumber = "1231231231", Gender = true, Address = "Rajkot", DOB = Convert.ToDateTime("2002-02-09").Date },
-                new Student() { Id = 2, FirstName = "Jil", LastName = "Patel", MobileNumber = "1231231231", Gender = true, Address = "Rajkot", DOB = Convert.ToDateTime("2001-01-01").Date },
-                new Student() { Id = 3, FirstName = "Vipul", LastName = "Kumar", MobileNumber = "1231231231", Gender = true, Address = "Rajkot", DOB = Convert.ToDateTime("1999-07-07").Date },
-                new Student() { Id = 4, FirstName = "Jay", LastName = "Gohel", MobileNumber = "1231231231", Gender = true, Address = "Rajkot", DOB = Convert.ToDateTime("2000-04-12").Date }
+                new Student() { Id = 1, FirstName = "Bhavin", LastName = "Kareliya", MobileNumber = "1231231231", Gender = 'M', Address = "Rajkot", DOB = Convert.ToDateTime("2002-02-09").Date },
+                new Student() { Id = 2, FirstName = "Jil", LastName = "Patel", MobileNumber = "1231231231", Gender = 'M', Address = "Rajkot", DOB = Convert.ToDateTime("2001-01-01").Date },
+                new Student() { Id = 3, FirstName = "Vipul", LastName = "Kumar", MobileNumber = "1231231231", Gender = 'M', Address = "Rajkot", DOB = Convert.ToDateTime("1999-07-07").Date },
+                new Student() { Id = 4, FirstName = "Jay", LastName = "Gohel", MobileNumber = "1231231231", Gender = 'M', Address = "Rajkot", DOB = Convert.ToDateTime("2000-04-12").Date }
             );
         }
     }

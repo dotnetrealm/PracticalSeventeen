@@ -12,8 +12,8 @@ using PracticalSeventeen.Data.Models;
 namespace PracticalSeventeen.Data.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230706140328_Initial")]
-    partial class Initial
+    [Migration("20230706164348_SeedApplicationDB")]
+    partial class SeedApplicationDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,6 +41,18 @@ namespace PracticalSeventeen.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            RoleName = "User"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            RoleName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("PracticalSeventeen.Data.Models.Student", b =>
@@ -63,8 +75,9 @@ namespace PracticalSeventeen.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<bool>("Gender")
-                        .HasColumnType("bit");
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -82,6 +95,48 @@ namespace PracticalSeventeen.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Students");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Rajkot",
+                            DOB = new DateTime(2002, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Bhavin",
+                            Gender = "M",
+                            LastName = "Kareliya",
+                            MobileNumber = "1231231231"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Rajkot",
+                            DOB = new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Jil",
+                            Gender = "M",
+                            LastName = "Patel",
+                            MobileNumber = "1231231231"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Rajkot",
+                            DOB = new DateTime(1999, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Vipul",
+                            Gender = "M",
+                            LastName = "Kumar",
+                            MobileNumber = "1231231231"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Rajkot",
+                            DOB = new DateTime(2000, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Jay",
+                            Gender = "M",
+                            LastName = "Gohel",
+                            MobileNumber = "1231231231"
+                        });
                 });
 
             modelBuilder.Entity("PracticalSeventeen.Data.Models.User", b =>
@@ -115,6 +170,48 @@ namespace PracticalSeventeen.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "bhavin@gmail.com",
+                            Firstname = "Bhavin",
+                            LastName = "Kareliya",
+                            Password = "123123"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "jil@gmail.com",
+                            Firstname = "Jil",
+                            LastName = "Patel",
+                            Password = "123123"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Email = "vipul@gmail.com",
+                            Firstname = "Vipul",
+                            LastName = "Kumar",
+                            Password = "123123"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Email = "abhi@gmail.com",
+                            Firstname = "Abhi",
+                            LastName = "Dasadiya",
+                            Password = "123123"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Email = "jay@gmail.com",
+                            Firstname = "Jay",
+                            LastName = "Gohel",
+                            Password = "123123"
+                        });
                 });
 
             modelBuilder.Entity("PracticalSeventeen.Data.Models.UserRole", b =>
@@ -132,6 +229,33 @@ namespace PracticalSeventeen.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            RoleId = 2,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            RoleId = 2,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            RoleId = 1,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            RoleId = 1,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            RoleId = 1,
+                            UserId = 5
+                        });
                 });
 
             modelBuilder.Entity("PracticalSeventeen.Data.Models.UserRole", b =>
