@@ -44,7 +44,9 @@ namespace PracticalSeventeen.Data.Repositories
             data.MobileNumber = student.MobileNumber;
             data.Address = student.Address;
             data.DOB = student.DOB;
+            data.Gender = student.Gender;
             _db.Students.Update(data);
+            await _db.SaveChangesAsync();
             return true;
         }
         public async Task<bool> DeleteStudentAsync(int studentId)
@@ -52,6 +54,7 @@ namespace PracticalSeventeen.Data.Repositories
             var data = await _db.Students.FirstOrDefaultAsync(s => s.Id == studentId);
             if (data == null) return false;
             _db.Remove(data);
+            await _db.SaveChangesAsync();   
             return true;
         }
 

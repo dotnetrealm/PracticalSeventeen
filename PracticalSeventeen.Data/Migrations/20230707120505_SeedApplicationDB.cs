@@ -24,7 +24,7 @@ namespace PracticalSeventeen.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Students",
-                columns: new[] { "Id", "Address", "DOB", "FirstName", "Gender", "LastName", "MiddleName", "MobileNumber" },
+                columns: new[] { "Id", "Address", "DOB", "FirstName", "Gender", "LastName", "MiddleName", "varchar(10)" },
                 values: new object[,]
                 {
                     { 1, "Rajkot", new DateTime(2002, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bhavin", "M", "Kareliya", null, "1231231231" },

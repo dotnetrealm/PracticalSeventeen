@@ -12,7 +12,7 @@ using PracticalSeventeen.Data.Models;
 namespace PracticalSeventeen.Data.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230706164326_Initial")]
+    [Migration("20230707120442_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -69,16 +69,17 @@ namespace PracticalSeventeen.Data.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MiddleName")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("MiddleName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MobileNumber")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("varchar(10)");
 
                     b.HasKey("Id");
 

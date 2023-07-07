@@ -31,11 +31,11 @@ namespace PracticalSeventeen.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    MiddleName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MiddleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     DOB = table.Column<DateTime>(type: "date", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(1)", nullable: false),
-                    MobileNumber = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    varchar10 = table.Column<string>(name: "varchar(10)", type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
                 },
                 constraints: table =>

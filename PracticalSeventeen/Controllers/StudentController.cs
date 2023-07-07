@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PracticalSeventeen.Data.Interfaces;
 using PracticalSeventeen.Data.Models;
+using PracticalSeventeen.Models;
+using System.Diagnostics;
 
 namespace PracticalSeventeen.Controllers
 {
@@ -19,6 +21,13 @@ namespace PracticalSeventeen.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> View(int id)
+        {
+            Student student = await _studentRepository.GetStudentByIdAsync(id);
+            return View(student);
+        }
+
+        [HttpGet]
         public IActionResult Create()
         {
             return View(new Student());
@@ -27,6 +36,10 @@ namespace PracticalSeventeen.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateAsync(Student student)
         {
+            //future date validation
+            if(student.DOB > DateTime.Now)
+                ModelState.AddModelError(nameof(Student.DOB), $"Please enter a value less than or equal to {DateTime.Now.ToShortDateString()}.");
+
             if (ModelState.IsValid)
             {
                 int id = await _studentRepository.InsertStudentAsync(student);
@@ -60,6 +73,12 @@ namespace PracticalSeventeen.Controllers
             bool isDeleted = await _studentRepository.DeleteStudentAsync(id);
             if (isDeleted) return RedirectToAction("Index");
             return RedirectToAction("Error", "Home");
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
