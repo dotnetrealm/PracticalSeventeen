@@ -25,3 +25,8 @@ body {
     content: " *";
     color: red;
 }
+
+.required:after {
+    content: " *";
+    color: red;
+}

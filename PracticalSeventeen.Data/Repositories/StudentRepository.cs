@@ -20,8 +20,8 @@ namespace PracticalSeventeen.Data.Repositories
 
         public async Task<Student> GetStudentByIdAsync(int studentId)
         {
-            Student data = await _db.Students.FirstOrDefaultAsync(s => s.Id == studentId);
-            return data;
+            Student? data = await _db.Students.FirstOrDefaultAsync(s => s.Id == studentId);
+            return data!;
         }
 
         public async Task<int> InsertStudentAsync(Student student)
@@ -54,7 +54,7 @@ namespace PracticalSeventeen.Data.Repositories
             var data = await _db.Students.FirstOrDefaultAsync(s => s.Id == studentId);
             if (data == null) return false;
             _db.Remove(data);
-            await _db.SaveChangesAsync();   
+            await _db.SaveChangesAsync();
             return true;
         }
 

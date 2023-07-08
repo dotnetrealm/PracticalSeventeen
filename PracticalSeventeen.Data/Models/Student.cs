@@ -35,7 +35,7 @@ namespace PracticalSeventeen.Data.Models
         [DataType(DataType.PhoneNumber)]
         [StringLength(10, MinimumLength = 10)]
         [DisplayName("Mobile number")]
-        [RegularExpression("^[0-9]{10}$", ErrorMessage ="Please enter valid mobile number.")]
+        [RegularExpression("^[0-9]{10}$", ErrorMessage = "Please enter valid mobile number.")]
         [Column("varchar(10)")]
         public string MobileNumber { get; set; } = null!;
 
