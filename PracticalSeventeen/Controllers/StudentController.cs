@@ -26,6 +26,7 @@ namespace PracticalSeventeen.Controllers
         public async Task<IActionResult> ViewAsync(int id)
         {
             Student student = await _studentRepository.GetStudentByIdAsync(id);
+            if (student is null) return NotFound();
             return View(student);
         }
 

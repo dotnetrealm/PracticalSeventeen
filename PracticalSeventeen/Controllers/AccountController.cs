@@ -15,16 +15,18 @@ namespace PracticalSeventeen.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> LoginAsync()
+        public async Task<IActionResult> LoginAsync(string? returnurl)
         {
+            ViewBag.ReturnUrl = returnurl;  
             if (User.Identity.IsAuthenticated)
                 return RedirectToAction("Index", "Student");
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> LoginAsync(Credential credential)
+        public async Task<IActionResult> LoginAsync(string? returnurl, Credential credential)
         {
+            ViewBag.ReturnUrl = returnurl;
             if (ModelState.IsValid)
             {
                 var data = await _accountRepository.GetUserByEmailPasswordAsync(credential.Email, credential.Password);
@@ -52,7 +54,10 @@ namespace PracticalSeventeen.Controllers
 
                 await HttpContext.SignInAsync("AccountCookie", principal, properties);
 
-                return RedirectToAction("Index", "Student");
+                if(returnurl is not null && Url.IsLocalUrl(returnurl))
+                    return Redirect(returnurl);
+                else
+                    return RedirectToAction("Index", "Student");
             }
             return View();
         }
@@ -62,6 +67,7 @@ namespace PracticalSeventeen.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public IActionResult PageNotFound()
         {
