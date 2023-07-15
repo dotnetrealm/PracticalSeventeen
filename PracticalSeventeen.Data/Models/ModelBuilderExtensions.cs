@@ -7,7 +7,6 @@ namespace PracticalSeventeen.Data.Models
         /// <summary>
         /// Seed Users table data
         /// </summary>
-        /// <param name="modelBuilder"></param>
         public static void SeedUsers(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
@@ -22,7 +21,6 @@ namespace PracticalSeventeen.Data.Models
         /// <summary>
         /// Seed Roles table data
         /// </summary>
-        /// <param name="modelBuilder"></param>
         public static void SeedRoles(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Role>().HasData(
@@ -34,7 +32,6 @@ namespace PracticalSeventeen.Data.Models
         /// <summary>
         /// Seed UserRoles table data
         /// </summary>
-        /// <param name="modelBuilder"></param>
         public static void SeedUserRoles(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserRole>().HasData(
@@ -49,10 +46,8 @@ namespace PracticalSeventeen.Data.Models
         /// <summary>
         /// Seed Students table data
         /// </summary>
-        /// <param name="modelBuilder"></param>
         public static void SeedStudents(this ModelBuilder modelBuilder)
         {
-            //0-Female, 1 = Male
             modelBuilder.Entity<Student>().HasData(
                 new Student() { Id = 1, FirstName = "Bhavin", LastName = "Kareliya", MobileNumber = "1231231231", Gender = 'M', Address = "Rajkot", DOB = Convert.ToDateTime("2002-02-09").Date },
                 new Student() { Id = 2, FirstName = "Jil", LastName = "Patel", MobileNumber = "1231231231", Gender = 'M', Address = "Rajkot", DOB = Convert.ToDateTime("2001-01-01").Date },

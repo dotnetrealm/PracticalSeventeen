@@ -12,6 +12,7 @@ namespace PracticalSeventeen.Data.Models
         [DisplayName("Role")]
         public string RoleName { get; set; } = null!;
 
-        public ICollection<UserRole> Users { get; set; }
+        //Relational properties
+        public ICollection<UserRole>? Users { get; set; }
     }
 }

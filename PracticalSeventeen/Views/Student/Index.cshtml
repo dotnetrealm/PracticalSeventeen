@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PracticalSeventeen.Data.Models.Student>
+﻿@model IEnumerable<Student>
 
 @{
     ViewData["Title"] = "Index";
@@ -15,9 +15,6 @@
 <table class="table text-center">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
@@ -46,9 +43,6 @@
         @foreach (var item in Model)
         {
             <tr>
-                <th>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </th>
                 <td>
                     @Html.DisplayFor(modelItem => item.FirstName)
                 </td>

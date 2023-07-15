@@ -6,7 +6,7 @@ namespace PracticalSeventeen.Data.Repositories
 {
     public class StudentRepository : IStudentRepository
     {
-        private readonly ApplicationDBContext _db;
+        readonly ApplicationDBContext _db;
         public StudentRepository(ApplicationDBContext db)
         {
             _db = db;
@@ -14,7 +14,7 @@ namespace PracticalSeventeen.Data.Repositories
 
         public async Task<IEnumerable<Student>> GetAllStudentsAsync()
         {
-            var students = await _db.Students.ToListAsync();
+            IEnumerable<Student> students = await _db.Students.ToListAsync();
             return students;
         }
 
@@ -51,7 +51,7 @@ namespace PracticalSeventeen.Data.Repositories
         }
         public async Task<bool> DeleteStudentAsync(int studentId)
         {
-            var data = await _db.Students.FirstOrDefaultAsync(s => s.Id == studentId);
+            Student? data = await _db.Students.FirstOrDefaultAsync(s => s.Id == studentId);
             if (data == null) return false;
             _db.Remove(data);
             await _db.SaveChangesAsync();

@@ -7,9 +7,9 @@
         <h1 class="display-1 fw-bold">500</h1>
         <p class="fs-3"> <span class="text-danger">Opps!</span> Page not working properly.</p>
         <p class="lead">
-            Please contact Administrator for more information.
+            Please contact admin for more information.
         </p>
-        @if (User.Identity.IsAuthenticated)
+        @if (User.Identity!.IsAuthenticated)
         {
             <a class="btn btn-primary" asp-controller="Student" asp-action="Index">Go Home</a>
         }

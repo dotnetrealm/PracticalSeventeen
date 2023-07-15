@@ -1,5 +1,10 @@
 ﻿@model PracticalSeventeen.Data.ViewModels.Credential
 
+@{
+    ViewData["Title"] = "Login";
+}
+
+
 <div class="row d-flex justify-content-center align-items-center loginForm">
     <form asp-controller="Account" asp-action="Login" method="post" class="col-6" asp-route-returnurl="@ViewBag.ReturnUrl">
         <h1>Login</h1>

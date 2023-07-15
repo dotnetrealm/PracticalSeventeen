@@ -4,7 +4,7 @@ namespace PracticalSeventeen.Data.ViewModels
 {
     public class UserDetails
     {
-        public User User { get; set; }
-        public string Role { get; set; }
+        public User User { get; set; } = null!;
+        public string Role { get; set; } = null!;
     }
 }

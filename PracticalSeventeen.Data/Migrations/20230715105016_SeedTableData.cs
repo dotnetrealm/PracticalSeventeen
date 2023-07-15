@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -7,7 +8,7 @@
 namespace PracticalSeventeen.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class SeedApplicationDB : Migration
+    public partial class SeedTableData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,7 +24,7 @@ namespace PracticalSeventeen.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Students",
-                columns: new[] { "Id", "Address", "DOB", "FirstName", "Gender", "LastName", "MiddleName", "varchar(10)" },
+                columns: new[] { "Id", "Address", "DOB", "FirstName", "Gender", "LastName", "MiddleName", "MobileNumber" },
                 values: new object[,]
                 {
                     { 1, "Rajkot", new DateTime(2002, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bhavin", "M", "Kareliya", null, "1231231231" },

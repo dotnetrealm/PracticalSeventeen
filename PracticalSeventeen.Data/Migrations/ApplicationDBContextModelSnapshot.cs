@@ -86,9 +86,7 @@ namespace PracticalSeventeen.Data.Migrations
 
                     b.Property<string>("MobileNumber")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)")
-                        .HasColumnName("varchar(10)");
+                        .HasColumnType("varchar(10)");
 
                     b.HasKey("Id");
 
@@ -148,7 +146,7 @@ namespace PracticalSeventeen.Data.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(320)
-                        .HasColumnType("nvarchar(320)");
+                        .HasColumnType("varchar(320)");
 
                     b.Property<string>("Firstname")
                         .IsRequired()

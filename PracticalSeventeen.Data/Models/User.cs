@@ -21,6 +21,7 @@ namespace PracticalSeventeen.Data.Models
         [Required]
         [StringLength(maximumLength: 320, ErrorMessage = "Email must contains less than 320 characters.")]
         [DataType(DataType.EmailAddress)]
+        [Column(TypeName = "varchar(320)")]
         [RegularExpression("/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g", ErrorMessage = "Please enter valid Email address.")]
         public string Email { get; set; } = null!;
 
@@ -36,6 +37,7 @@ namespace PracticalSeventeen.Data.Models
         [NotMapped]
         public string ConfirmPassword { get; set; } = null!;
 
-        public ICollection<UserRole> Roles { get; set; }
+        //Relational properties
+        public ICollection<UserRole>? Roles { get; set; }
     }
 }
