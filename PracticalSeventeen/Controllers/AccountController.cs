@@ -35,6 +35,7 @@ namespace PracticalSeventeen.Controllers
         /// <param name="credential">Usercreadential object</param>
         /// <returns></returns>
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> LoginAsync(string? returnurl, Credential credential)
         {
             ViewBag.ReturnUrl = returnurl;

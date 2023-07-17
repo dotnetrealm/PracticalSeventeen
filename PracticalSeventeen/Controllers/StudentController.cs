@@ -54,6 +54,7 @@ namespace PracticalSeventeen.Controllers
         /// <param name="student">Student object</param>
         [Authorize(Roles = "Admin")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateAsync(Student student)
         {
             //future date validation
@@ -88,6 +89,7 @@ namespace PracticalSeventeen.Controllers
         /// <param name="student">Student object</param>
         [Authorize(Roles = "Admin")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditAsync(int id, Student student)
         {
             //future date validation
